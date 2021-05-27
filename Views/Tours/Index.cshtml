@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Databaze_lab_2.Tour>
+
+@{
+    ViewData["Title"] = "Таблиця турів";
+}
+
+<h1>Таблиця турів</h1>
+
+<p>
+    <a asp-action="Create">Створити новий</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TourName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DurationInDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Info)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TourName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DurationInDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Info)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TourId">Редагувати</a> |
+                <a asp-action="Details" asp-route-id="@item.TourId">Інформація</a> |
+                <a asp-action="Delete" asp-route-id="@item.TourId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Home" asp-action="Menu">Назад до меню</a>
+</div>

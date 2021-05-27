@@ -1,0 +1,271 @@
+﻿@model Query
+
+@{
+    ViewData["Title"] = "Результат";
+}
+
+<h1>Результат</h1>
+<hr />
+
+@if (string.IsNullOrEmpty(Model.Error))
+{
+    if (Model.QueryId.Equals("S1"))
+    {
+        <p style="font-size:20px">
+            <b>Назви усіх турів турист @Model.TouristName</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.ToursNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.ToursNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    if (Model.QueryId.Equals("S2"))
+    {
+        <p style="font-size:20px">
+            <b>Назви усіх готелів країни @Model.CountryName</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.HotelsNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.HotelsNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    if (Model.QueryId.Equals("S3"))
+    {
+        <p style="font-size:20px">
+            <b>Знайти назви усіх турів, що використовують транспорт @Model.TransportName</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.ToursNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.ToursNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    if (Model.QueryId.Equals("S4"))
+    {
+        <p style="font-size:20px">
+            <b>Знайти назви усіх турів, що використовують готель @Model.HotelName</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.ToursNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.ToursNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    if (Model.QueryId.Equals("D1"))
+    {
+        <p style="font-size:20px">
+            <b>Знайти імена туристів, які мають ваучери хоча б на один тур туриста @Model.TouristName</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.TouristsNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.TouristsNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    if (Model.QueryId.Equals("D2"))
+    {
+        <p style="font-size:20px">
+            <b>Назви країн, які мають менше готелів ніж в країні @Model.CountryName, але хоча б один готель мають</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.CountriesNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.CountriesNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    if (Model.QueryId.Equals("D3"))
+    {
+        <p style="font-size:20px">
+            <b>Назви транспортів, якими забезпечені тури, які мають більшу кількість етапів ніж тур @Model.TourName</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.TransportsNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.TransportsNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    if (Model.QueryId.Equals("D4"))
+    {
+        <p style="font-size:20px">
+            <b>Назви турів, які проходять через всі країни</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.ToursNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.ToursNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    if (Model.QueryId.Equals("M1"))
+    {
+        <p style="font-size:20px">
+            <b>Знайти туристів, що зупиняються у всіх готелях, що і даний турист @Model.TouristName і обов'язково в ще якихось</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.TouristsNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.TouristsNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    if (Model.QueryId.Equals("M2"))
+    {
+        <p style="font-size:20px">
+            <b>Знайти країни в яких проводяться тури з середньою тривалістю турів >= @Model.Seredne</b>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.CountriesNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.CountriesNames[i]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <p style="font-size:20px">
+        @Model.Error
+    </p>
+}
+<form method="get" asp-controller="Queries" asp-action="Index">
+    <input type="submit" class="btn btn-outline-secondary" value="Назад до запитів" />
+</form>

@@ -1,0 +1,36 @@
+﻿@model Databaze_lab_2.Tour
+
+@{
+    ViewData["Title"] = "Інформація";
+}
+
+<h1>Інформація</h1>
+
+<div>
+    <h4>Тур</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TourName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TourName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DurationInDays)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DurationInDays)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Info)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Info)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TourId">Редагувати</a> |
+    <a asp-action="Index">Назад до таблиці</a>
+</div>

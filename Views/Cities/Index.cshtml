@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Databaze_lab_2.City>
+
+@{
+    ViewData["Title"] = "Таблиця міст";
+}
+
+<h1>Таблиця міст</h1>
+
+<p>
+    <a asp-action="Create">Створити нове</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CityName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country.CountryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.CountryName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CityId">Редагувати</a> |
+                <a asp-action="Details" asp-route-id="@item.CityId">Інформація</a> |
+                <a asp-action="Delete" asp-route-id="@item.CityId">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Home" asp-action="Menu">Назад до меню</a>
+</div>

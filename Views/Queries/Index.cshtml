@@ -1,0 +1,243 @@
+﻿@model Databaze_lab_2.Models.Query
+@{ ViewData["Title"] = "Запити"; }
+
+<h1>Запити</h1>
+<hr />
+
+<h3>Прості</h3>
+<hr />
+
+<p style="font-size:20px">
+    <b>Запит 1</b>
+</p>
+<p style="font-size:17px">
+    Знайти назви усіх турів даного туриста.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="SimpleQuery1">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Ім'я туриста</label>
+                <select asp-for="TouristName"
+                        asp-items="@ViewBag.TouristsList" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<p style="font-size:20px">
+    <b>Запит 2</b>
+</p>
+<p style="font-size:17px">
+    Знайти назви усіх готелів даної країни.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="SimpleQuery2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Назва країни</label>
+                <select asp-for="CountryName"
+                        asp-items="@ViewBag.CountriesList" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<p style="font-size:20px">
+    <b>Запит 3</b>
+</p>
+<p style="font-size:17px">
+    Знайти назви усіх турів, що використовують данний транспорт.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="SimpleQuery3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Назва транспорту</label>
+                <select asp-for="TransportName"
+                        asp-items="@ViewBag.TransportsList" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<p style="font-size:20px">
+    <b>Запит 4</b>
+</p>
+<p style="font-size:17px">
+    Знайти назви усіх турів, що використовують данний готель.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="SimpleQuery4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Назва готелю</label>
+                <select asp-for="HotelName"
+                        asp-items="@ViewBag.HotelsList" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<h3>Складні</h3>
+<hr />
+
+<p style="font-size:20px">
+    <b>Запит 1</b>
+</p>
+<p style="font-size:17px">
+    Знайти імена туристів, які мають ваучери хоча б на один тур даного туриста.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="DifficultSimpleQuery1">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Ім'я туриста</label>
+                <select asp-for="TouristName"
+                        asp-items="@ViewBag.TouristsList" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<p style="font-size:20px">
+    <b>Запит 2</b>
+</p>
+<p style="font-size:17px">
+    Назви країн, які мають менше готелів ніж в даній країні, але хоча б один готель мають.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="DifficultSimpleQuery2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Назва країни</label>
+                <select asp-for="CountryName"
+                        asp-items="@ViewBag.CountriesList" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<p style="font-size:20px">
+    <b>Запит 3</b>
+</p>
+<p style="font-size:17px">
+    Назви транспортів, якими забезпечені тури які мають більшу кількість етапів ніж даний тур.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="DifficultSimpleQuery3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Назва туру</label>
+                <select asp-for="TourName"
+                        asp-items="@ViewBag.ToursList" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<p style="font-size:20px">
+    <b>Запит 4</b>
+</p>
+<p style="font-size:17px">
+    Назви турів, які проходять через всі країни.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="DifficultSimpleQuery4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<h3>Складні запити від викладача</h3>
+<hr />
+
+<p style="font-size:20px">
+    <b>Запит 1</b>
+</p>
+<p style="font-size:17px">
+    Знайти туристів, що зупиняються у всіх готелях, що і даний турист і обов'язково в ще якихось.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="MasterSimpleQuery1">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Ім'я туриста</label>
+                <select asp-for="TouristName"
+                        asp-items="@ViewBag.TouristsList" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<p style="font-size:20px">
+    <b>Запит 2</b>
+</p>
+<p style="font-size:17px">
+    Знайти країни в яких проводяться тури з середньою тривалістю турів >= х.
+</p>
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="MasterSimpleQuery2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Середнє</label>
+                <input asp-for="Seredne" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Знайти" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
